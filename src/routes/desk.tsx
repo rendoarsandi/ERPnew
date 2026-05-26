@@ -9,7 +9,10 @@ import {
   ArrowLeftRight,
   ChevronRight,
   Menu,
-  X
+  X,
+  Building,
+  Landmark,
+  BookOpen
 } from "lucide-react";
 import { useState } from "react";
 
@@ -18,10 +21,13 @@ export const Route = createFileRoute("/desk")({
 });
 
 const DOC_TYPES = [
+  { name: "Company", icon: Building, label: "Company" },
+  { name: "Bank Account", icon: Landmark, label: "Bank Account" },
   { name: "Customer", icon: Users, label: "Customer" },
   { name: "Item", icon: Package, label: "Item" },
   { name: "Sales Invoice", icon: FileText, label: "Sales Invoice" },
   { name: "Payment Entry", icon: CreditCard, label: "Payment Entry" },
+  { name: "Journal Entry", icon: BookOpen, label: "Journal Entry" },
   { name: "Bank Transaction", icon: Coins, label: "Bank Transaction" }
 ];
 

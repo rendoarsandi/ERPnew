@@ -5,13 +5,21 @@ import ItemSchema from "../doctypes/Item.json";
 import SalesInvoiceSchema from "../doctypes/Sales_Invoice.json";
 import PaymentEntrySchema from "../doctypes/Payment_Entry.json";
 import BankTransactionSchema from "../doctypes/Bank_Transaction.json";
+import CompanySchema from "../doctypes/Company.json";
+import BankAccountSchema from "../doctypes/Bank_Account.json";
+import JournalEntrySchema from "../doctypes/Journal_Entry.json";
+import JournalEntryAccountSchema from "../doctypes/Journal_Entry_Account.json";
 
 const SCHEMAS: Record<string, any> = {
   "Customer": CustomerSchema,
   "Item": ItemSchema,
   "Sales Invoice": SalesInvoiceSchema,
   "Payment Entry": PaymentEntrySchema,
-  "Bank Transaction": BankTransactionSchema
+  "Bank Transaction": BankTransactionSchema,
+  "Company": CompanySchema,
+  "Bank Account": BankAccountSchema,
+  "Journal Entry": JournalEntrySchema,
+  "Journal Entry Account": JournalEntryAccountSchema
 };
 
 const SEARCH_COLUMNS: Record<string, string[]> = {
@@ -19,7 +27,10 @@ const SEARCH_COLUMNS: Record<string, string[]> = {
   "Item": ["id", "item_name", "item_code", "description"],
   "Sales Invoice": ["id", "customer", "contact_display"],
   "Payment Entry": ["id", "party", "payment_type", "status"],
-  "Bank Transaction": ["id", "description", "party", "status"]
+  "Bank Transaction": ["id", "description", "party", "status"],
+  "Company": ["id", "company_name", "default_currency"],
+  "Bank Account": ["id", "account_name", "bank_name", "account_number"],
+  "Journal Entry": ["id", "user_remark", "status"]
 };
 
 function getEnv() {

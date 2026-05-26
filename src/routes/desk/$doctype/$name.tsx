@@ -18,6 +18,10 @@ import PaymentEntrySchema from "../../../doctypes/Payment_Entry.json";
 import BankTransactionSchema from "../../../doctypes/Bank_Transaction.json";
 import SalesInvoiceItemSchema from "../../../doctypes/Sales_Invoice_Item.json";
 import PaymentEntryReferenceSchema from "../../../doctypes/Payment_Entry_Reference.json";
+import CompanySchema from "../../../doctypes/Company.json";
+import BankAccountSchema from "../../../doctypes/Bank_Account.json";
+import JournalEntrySchema from "../../../doctypes/Journal_Entry.json";
+import JournalEntryAccountSchema from "../../../doctypes/Journal_Entry_Account.json";
 
 const SCHEMAS: Record<string, any> = {
   "Customer": CustomerSchema,
@@ -26,7 +30,11 @@ const SCHEMAS: Record<string, any> = {
   "Payment Entry": PaymentEntrySchema,
   "Bank Transaction": BankTransactionSchema,
   "Sales Invoice Item": SalesInvoiceItemSchema,
-  "Payment Entry Reference": PaymentEntryReferenceSchema
+  "Payment Entry Reference": PaymentEntryReferenceSchema,
+  "Company": CompanySchema,
+  "Bank Account": BankAccountSchema,
+  "Journal Entry": JournalEntrySchema,
+  "Journal Entry Account": JournalEntryAccountSchema
 };
 
 export const Route = createFileRoute("/desk/$doctype/$name")({

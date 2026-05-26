@@ -36,16 +36,24 @@ const MODULES = [
  * or a local copy under src/lib/frappe/doctypes/[doctype].json.
  */
 export function loadDocType(doctype: string): DocTypeDefinition {
+  const fileName = doctype.replace(/ /g, '_') + '.json';
   const snakeName = doctype.replace(/ /g, '_').toLowerCase();
   
-  // 1. Try local copy
-  const localPath = path.join(process.cwd(), 'src/lib/frappe/doctypes', `${snakeName}.json`);
-  if (fs.existsSync(localPath)) {
-    try {
-      const data = fs.readFileSync(localPath, 'utf8');
-      return JSON.parse(data) as DocTypeDefinition;
-    } catch (err) {
-      console.error(`Failed to read/parse local DocType ${doctype}:`, err);
+  // 1. Try local copy in src/doctypes/
+  const pathsToTry = [
+    path.join(process.cwd(), 'src/doctypes', fileName),
+    path.join(process.cwd(), 'src/doctypes', `${snakeName}.json`),
+    path.join(process.cwd(), 'src/lib/frappe/doctypes', `${snakeName}.json`)
+  ];
+
+  for (const localPath of pathsToTry) {
+    if (fs.existsSync(localPath)) {
+      try {
+        const data = fs.readFileSync(localPath, 'utf8');
+        return JSON.parse(data) as DocTypeDefinition;
+      } catch (err) {
+        console.error(`Failed to read/parse local DocType ${doctype} at ${localPath}:`, err);
+      }
     }
   }
 

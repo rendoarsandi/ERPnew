@@ -20,13 +20,21 @@ import ItemSchema from "../../../doctypes/Item.json";
 import SalesInvoiceSchema from "../../../doctypes/Sales_Invoice.json";
 import PaymentEntrySchema from "../../../doctypes/Payment_Entry.json";
 import BankTransactionSchema from "../../../doctypes/Bank_Transaction.json";
+import CompanySchema from "../../../doctypes/Company.json";
+import BankAccountSchema from "../../../doctypes/Bank_Account.json";
+import JournalEntrySchema from "../../../doctypes/Journal_Entry.json";
+import JournalEntryAccountSchema from "../../../doctypes/Journal_Entry_Account.json";
 
 const SCHEMAS: Record<string, any> = {
   "Customer": CustomerSchema,
   "Item": ItemSchema,
   "Sales Invoice": SalesInvoiceSchema,
   "Payment Entry": PaymentEntrySchema,
-  "Bank Transaction": BankTransactionSchema
+  "Bank Transaction": BankTransactionSchema,
+  "Company": CompanySchema,
+  "Bank Account": BankAccountSchema,
+  "Journal Entry": JournalEntrySchema,
+  "Journal Entry Account": JournalEntryAccountSchema
 };
 
 interface ListSearchParams {
